@@ -5,8 +5,7 @@ RUN apt-get update && \
 
 RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc \
     && chmod +x mc \
-    && echo $(pwd) >> $GITHUB_PATH \
-    && mc --help
+    && ./mc --help
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
