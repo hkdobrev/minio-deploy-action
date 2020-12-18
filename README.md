@@ -17,7 +17,7 @@ with:
   secret_key: ${{ secrets.MINIO_SECRET_KEY }}
   bucket: 'mybucket'
   # Optional inputs with their defaults:
-  source_dit: 'public'
+  source_dir: 'public'
   target_dir: '/'
 ```
 
@@ -47,7 +47,7 @@ jobs:
           access_key: ${{ secrets.MINIO_ACCESS_KEY }}
           secret_key: ${{ secrets.MINIO_SECRET_KEY }}
           bucket: 'mybucket'
-          source_dit: 'public'
+          source_dir 'public'
           target_dir: '/'
 ```
 
