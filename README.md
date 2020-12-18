@@ -28,7 +28,7 @@ name: Deploy
 
 on:
   pull_request:
-    types: [open, synchronize]
+    types: [opened, synchronize]
   push:
     branches:
       - master
