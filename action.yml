@@ -1,0 +1,37 @@
+name: 'Minio Deploy'
+description: 'Deploy to Minio Storage'
+author: 'hkdobrev'
+inputs:
+  endpoint:
+    description: 'Minio endpoint of object storage host'
+    required: true
+  access_key:
+    description: 'Minio access key (username)'
+    required: true
+  secret_key:
+    description: 'Minio secret key (password)'
+    required: true
+  bucket:
+    description: 'Set the target minio bucket for deployment.'
+    required: true
+  source_dir:
+    description: 'Set an input directory for deployment.'
+    required: false
+    default: 'public'
+  target_dir:
+    description: 'Set a target directory for deployment (with a leading slash).'
+    required: false
+    default: '/'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    MINIO_ENDPOINT: ${{ inputs.endpoint }}
+    MINIO_ACCESS_KEY: ${{ inputs.access_key }}
+    MINIO_SECRET_KEY: ${{ inputs.secret_key }}
+  args:
+    - ${{ inputs.source_dir }}
+    - '${{ inputs.bucket }}${{ inputs.target_dir }}'
+branding:
+  icon: 'upload-cloud'
+  color: 'red'
