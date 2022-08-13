@@ -22,6 +22,10 @@ inputs:
     description: 'Set a target directory for deployment (with a leading slash).'
     required: false
     default: '/'
+  insecure:
+    description: 'Trust SSL certificates with minio --insecure option'
+    required: false
+    default: 'false'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -29,6 +33,7 @@ runs:
     MINIO_ENDPOINT: ${{ inputs.endpoint }}
     MINIO_ACCESS_KEY: ${{ inputs.access_key }}
     MINIO_SECRET_KEY: ${{ inputs.secret_key }}
+    MINIO_INSECURE: ${{ inputs.insecure }}
   args:
     - ${{ inputs.source_dir }}
     - '${{ inputs.bucket }}${{ inputs.target_dir }}'
