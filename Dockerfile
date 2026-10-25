@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 RUN apt-get update && \
     apt-get install --assume-yes wget
 
-RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc \
+RUN wget https://dl.min.io/aistor/mc/release/linux-amd64/mc \
     && chmod +x mc \
     && mv mc /usr/local/bin/ \
     && mc --help
